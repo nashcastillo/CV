@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nashely Castillo – AML/CFT Compliance Officer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0f2044;
+      --navy-mid: #1a3260;
+      --gold: #c9a84c;
+      --gold-light: #e8c87a;
+      --cream: #faf8f3;
+      --text: #1e1e2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--white);
+      padding: 60px 40px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.10);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.07);
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      letter-spacing: 0.02em;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .hero-title {
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      color: var(--gold-light);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-summary {
+      max-width: 680px;
+      margin: 0 auto 28px;
+      font-size: 0.97rem;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+    }
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 20px;
+      font-size: 0.85rem;
+    }
+    .contacts a, .contacts span {
+      color: var(--gold-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .contacts a:hover { color: var(--white); }
+    .contact-icon { font-size: 1rem; }
+
+    /* ── DOWNLOAD BUTTON ── */
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      padding: 12px 28px;
+      background: var(--gold);
+      color: var(--navy);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: background 0.2s, transform 0.15s;
+      position: relative;
+      z-index: 1;
+    }
+    .download-btn:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .download-btn svg {
+      width: 16px; height: 16px;
+      fill: var(--navy);
+    }
+
+    /* ── LAYOUT ── */
+    .page { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; }
+
+    /* ── SECTION ── */
+    .section { margin-top: 48px; }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 8px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-icon { font-size: 1.2rem; }
+
+    /* ── EXPERIENCE CARD ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 16px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 6px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .exp-role {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      grid-column: 1;
+    }
+    .exp-date {
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 600;
+      white-space: nowrap;
+      text-align: right;
+      grid-column: 2;
+      grid-row: 1;
+      align-self: start;
+      margin-top: 3px;
+    }
+    .exp-company {
+      font-size: 0.88rem;
+      color: var(--muted);
+      grid-column: 1 / -1;
+      font-style: italic;
+      margin-top: -2px;
+    }
+    .exp-bullets {
+      grid-column: 1 / -1;
+      margin-top: 10px;
+      padding-left: 0;
+      list-style: none;
+    }
+    .exp-bullets li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 3px 0 3px 18px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid { display: flex; flex-direction: column; gap: 14px; }
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 12px 16px;
+      background: var(--white);
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .edu-left { flex: 1; }
+    .edu-degree {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+    }
+    .edu-school {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .edu-note {
+      font-size: 0.8rem;
+      color: var(--text);
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .edu-date {
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* ── SKILLS GRID ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 18px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      border-top: 3px solid var(--navy);
+    }
+    .skill-card-title {
+      font-weight: 700;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.78rem;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+    .tag-gold {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold-light);
+      color: #7a5c10;
+    }
+
+    /* ── LANGUAGES ── */
+    .lang-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+    .lang-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      border-radius: 8px;
+      padding: 10px 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .lang-flag { font-size: 1.4rem; }
+    .lang-name { font-weight: 600; font-size: 0.88rem; color: var(--navy); }
+    .lang-level { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px 36px; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-date { text-align: left; grid-row: auto; }
+      .edu-item { flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<header class="hero">
+  <h1 class="hero-name">Nashely Castillo</h1>
+  <p class="hero-title">Criminologue &nbsp;|&nbsp; AML/CFT Compliance Officer</p>
+  <p class="hero-summary">
+    Experte en conformité avec <strong>11 ans d'expérience</strong> au Mexique et en France.
+    Mon objectif est d'allier mon expertise métier aux technologies d'IA pour optimiser
+    les systèmes de détection des fraudes et de la LCB-FT.
+  </p>
+  <a class="download-btn" href="./CV_Nashely_Castillo.pdf" download="CV_Nashely_Castillo.pdf">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5 1.41-1.41L11 13.17V4h2v9.17l2.59-2.58L17 11l-5 5zm-7 4h14v-2H5v2z"/></svg>
+    Télécharger mon CV (PDF)
+  </a>
+
+  <div class="contacts" style="margin-top:20px;">
+    <span><span class="contact-icon">📍</span> Paris, France</span>
+    <a href="tel:+33643370687"><span class="contact-icon">📞</span> +33 6 43 37 06 87</a>
+    <a href="mailto:lic.nashelycastillo@outlook.com"><span class="contact-icon">✉️</span> lic.nashelycastillo@outlook.com</a>
+    <a href="https://linkedin.com/in/nashely-castillo" target="_blank"><span class="contact-icon">💼</span> LinkedIn</a>
+    <a href="https://github.com/nashcastillo" target="_blank"><span class="contact-icon">🐙</span> GitHub</a>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- ── EXPÉRIENCE ── -->
+  <section class="section">
+    <h2 class="section-title"><span class="section-icon">💼</span> Expérience Professionnelle</h2>
+
+    <div style="padding-left:20px; border-left: 2px solid var(--border);">
+
+      <div class="exp-item">
+        <div class="exp-role">Responsable de Conformité LCB-FT</div>
+        <div class="exp-date">2025 – 2026</div>
+        <div class="exp-company">La Banque Postale Leasing &amp; Factoring — Paris</div>
+        <ul class="exp-bullets">
+          <li>Émission d'avis de conformité crédit-bail/affacturage auprès d'une clientèle B2B : contrats, risques LCB-FT, sanctions/embargos.</li>
+          <li>Déclaration à TRACFIN : traitement des alertes, analyse des risques et rédaction des déclarations de soupçon.</li>
+          <li>Implémentation d'un mode opératoire de rapprochement Excel/DS groupe-filiale Leasing &amp; Factoring.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Responsable de Conformité LCB-FT</div>
+        <div class="exp-date">2021 – 2025</div>
+        <div class="exp-company">Western Union — Paris</div>
+        <ul class="exp-bullets">
+          <li>Analyse niveau 2 des transactions internationales et déclaration à TRACFIN : ~<strong>120 déclarations de soupçon/mois</strong>, incluant des analyses de réseaux criminels internationaux.</li>
+          <li>Audit des agents (~15 audits/trimestre) selon une approche par les risques (RBA) ; déploiement des mesures de remédiation et formation de la première ligne de défense LCB-FT.</li>
+          <li>Participation active à la remédiation réglementaire ACPR : amélioration des procédures KYC et des examens renforcés (ECDD/EDD) — résultat favorable, <strong>aucune sanction prononcée</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Analyste Conformité LCB-FT</div>
+        <div class="exp-date">2021</div>
+        <div class="exp-company">ING Bank — Paris</div>
+        <ul class="exp-bullets">
+          <li>Déclaration à TRACFIN niveau 2 : traitement des alertes et rédaction d'environ 60 DS/mois.</li>
+          <li>Customer Due Diligence (CDD) et examens renforcés (ECDD/EDD) : mise à jour KYC et calibrage du Customer Risk Score.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Responsable de Conformité LCB-FT</div>
+        <div class="exp-date">2018 – 2019</div>
+        <div class="exp-company">Financiera CEFEMEX — Mérida, Mexique</div>
+        <ul class="exp-bullets">
+          <li>Direction du département conformité de l'entité régionale Mérida-Yucatán (1 assistante, coordination transverse).</li>
+          <li>Mise à jour des procédures LCB-FT et du système d'alertes ; pilotage du projet « cartographie des risques LCB » (Compliance &amp; IT).</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-role">Senior Analyst Conformité LCB-FT</div>
+        <div class="exp-date">2014 – 2018</div>
+        <div class="exp-company">CITI-BANAMEX (Citigroup) — Mexico, Mexique</div>
+        <ul class="exp-bullets">
+          <li>Évolution sur 4 ans : analyste junior → Senior Analyst ; analyse de plus de <strong>2 800 déclarations de soupçon</strong> sur la période.</li>
+          <li>Investigations approfondies sur des réseaux criminels (narcotrafic) utilisant des structures d'entreprises mexicaines à des fins de blanchiment.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FORMATION ── -->
+  <section class="section">
+    <h2 class="section-title"><span class="section-icon">🎓</span> Formation</h2>
+    <div class="edu-grid">
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">Formation Data Essentials</div>
+          <div class="edu-school">Jedha School, Paris</div>
+          <div class="edu-note">SQL, Python (Pandas, Scikit-Learn), Machine Learning, Cloud (GCP)</div>
+        </div>
+        <div class="edu-date">2026</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">Projet personnel — Détection AML</div>
+          <div class="edu-school"><a href="https://github.com/nashcastillo" target="_blank" style="color:var(--navy)">github.com/nashcastillo</a></div>
+          <div class="edu-note">Feature engineering comportemental — Python, Pandas, Scikit-Learn, Decision Tree</div>
+        </div>
+        <div class="edu-date">2026</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">Master 2 en Criminologie</div>
+          <div class="edu-school">CNAM, Paris</div>
+          <div class="edu-note">Mémoire : apport de l'IA et du machine learning aux systèmes d'alerte BC-FT</div>
+        </div>
+        <div class="edu-date">2022 – 2023</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">DU Compliance Officer (LCB-FT)</div>
+          <div class="edu-school">Université Paris-Saclay / ACAMS</div>
+          <div class="edu-note">Cadre règlementaire international, approche par les risques (RBA), Customer Risk Score</div>
+        </div>
+        <div class="edu-date">2020 – 2021</div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-left">
+          <div class="edu-degree">Licence Professionnelle en Criminologie</div>
+          <div class="edu-school">Universidad Metropolitana, Monterrey, Mexique</div>
+        </div>
+        <div class="edu-date">2008 – 2011</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── COMPÉTENCES ── -->
+  <section class="section">
+    <h2 class="section-title"><span class="section-icon">🛠️</span> Compétences</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-card-title">Outils & Tech</div>
+        <div class="skill-tags">
+          <span class="tag tag-gold">NICE Actimize</span>
+          <span class="tag tag-gold">Python</span>
+          <span class="tag tag-gold">Power BI</span>
+          <span class="tag">Excel</span>
+          <span class="tag">PowerPoint</span>
+          <span class="tag">Word</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">Data & IA</div>
+        <div class="skill-tags">
+          <span class="tag tag-gold">Machine Learning</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">Scikit-Learn</span>
+          <span class="tag">SQL</span>
+          <span class="tag">GCP</span>
+          <span class="tag">Decision Tree</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">Réglementation</div>
+        <div class="skill-tags">
+          <span class="tag tag-gold">GAFI/FATF</span>
+          <span class="tag">Directives AML EU</span>
+          <span class="tag">TRACFIN</span>
+          <span class="tag">KYC / EDD</span>
+          <span class="tag">Code monétaire</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-card-title">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="tag">Management transverse</span>
+          <span class="tag">Formation</span>
+          <span class="tag">Communication réglementaire</span>
+          <span class="tag">Gestion de projets</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── LANGUES ── -->
+  <section class="section">
+    <h2 class="section-title"><span class="section-icon">🌍</span> Langues</h2>
+    <div class="lang-row">
+      <div class="lang-badge">
+        <span class="lang-flag">🇲🇽</span>
+        <div>
+          <div class="lang-name">Espagnol</div>
+          <div class="lang-level">Langue maternelle</div>
+        </div>
+      </div>
+      <div class="lang-badge">
+        <span class="lang-flag">🇫🇷</span>
+        <div>
+          <div class="lang-name">Français</div>
+          <div class="lang-level">Courant</div>
+        </div>
+      </div>
+      <div class="lang-badge">
+        <span class="lang-flag">🇬🇧</span>
+        <div>
+          <div class="lang-name">Anglais</div>
+          <div class="lang-level">Usage professionnel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  © 2026 Nashely Castillo &nbsp;·&nbsp;
+  <a href="mailto:lic.nashelycastillo@outlook.com" style="color:var(--muted)">lic.nashelycastillo@outlook.com</a>
+  &nbsp;·&nbsp;
+  <a href="https://linkedin.com/in/nashely-castillo" target="_blank" style="color:var(--muted)">LinkedIn</a>
+</footer>
+
+</body>
+</html>
